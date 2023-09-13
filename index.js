@@ -39,8 +39,8 @@ function playRound(playerSelection, computedSelection) {
     const p2 = document.createElement('p');
     p1.textContent = Capitalize(playerSelection);
     p2.textContent = Capitalize(computedSelection);
-    playerChoice.appendChild(p1);
-    compChoice.appendChild(p2);
+    playerChoice.insertBefore(p1, playerChoice.firstChild);
+    compChoice.insertBefore(p2, compChoice.firstChild);
 
     if (playerSelection === "rock") {
         if (computedSelection === "scissors") {
@@ -109,7 +109,6 @@ function handleClick(e) {
     const scoreDiv = document.querySelector('div.score');
     roundDiv.textContent = result;
     roundDiv.style.color = 'black';
-    // scoreDiv.textContent = `${countPlayer} : ${countComputed}`;
     scoreDiv.innerHTML = `<div>${countPlayer}</div> - <div>${countComputed}</div>`;
 
     if (countPlayer === 5) {
